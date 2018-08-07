@@ -12,16 +12,10 @@
       <div class="col-md-6 order-2 order-md-1">
         <div v-if="sessionPlayer === undefined">
           <PlayerInfo :player='orderedPlayers[0]'/>
-          <div>
-            {{turnOrderDesc}} 
-          </div>
           <PlayerInfo v-for="player in orderedPlayers.slice(1)" :player='player' :key="player.player" />
         </div>
         <div v-else>
           <PlayerInfo :player='sessionPlayer'/>
-          <div>
-            {{turnOrderDesc}} 
-          </div>   
           <PlayerInfo v-for="player in orderedPlayers.filter(pl => pl !== sessionPlayer)" :player='player' :key="player.player" />
         </div>
         <Pool />
